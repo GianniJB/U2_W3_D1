@@ -25,6 +25,31 @@ console.log(u2);
 
 console.log(u2.compAge(u1));
 
+//////////////////////////////////////////////////////
+/* ESERCIZIO 2 */
+
+const petList = [];
+console.log(petList);
+/* Definisco struttura oggetto */
+class Pets {
+  constructor(petName, ownerName, species, breed) {
+    this.petName = petName;
+    this.ownerName = ownerName;
+    this.species = species;
+    this.breed = breed;
+  }
+
+  compareOwner(pet2) {
+    if (this.ownerName === pet2.ownerName) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+const showList = function () {};
+
 /* FORM */
 
 const form = document.querySelector("form");
@@ -32,19 +57,19 @@ console.log(form);
 
 form.onsubmit = function (e) {
   e.preventDefault();
-  const formData = new formData(form);
 
-  /* ASSEGNA DATI FORM */
+  const petName = document.getElementById("petName").value;
+  const ownerName = document.getElementById("ownerName").value;
+  const species = document.getElementById("species").value;
+  const breed = document.getElementById("breed").value;
 
-  const petName = formData.get("petName");
-  const ownerName = formData.get("ownerName");
-  const species = formData.get("species");
-  const breed = formData.get("breed");
+  /* CREO OGGETTO */
 
-  class Pets {
-    constructor(/* template literals? */)
-  }
+  let pet = new Pets(petName, ownerName, species, breed);
 
+  petList.push(pet);
+  form.reset();
+  /* INSERISCI IN OGGETTO */
 };
 
 /* class Pets {
